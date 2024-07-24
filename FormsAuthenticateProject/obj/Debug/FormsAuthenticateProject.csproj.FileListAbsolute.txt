@@ -1,0 +1,8 @@
+c:\users\james\documents\visual studio 2010\Projects\FormsAuthenticateProject\FormsAuthenticateProject\bin\FormsAuthenticateProject.dll
+c:\users\james\documents\visual studio 2010\Projects\FormsAuthenticateProject\FormsAuthenticateProject\bin\FormsAuthenticateProject.pdb
+c:\users\james\documents\visual studio 2010\Projects\FormsAuthenticateProject\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.dll
+c:\users\james\documents\visual studio 2010\Projects\FormsAuthenticateProject\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.pdb
+J:\FormsAuthenticateProject\FormsAuthenticateProject\bin\FormsAuthenticateProject.dll
+J:\FormsAuthenticateProject\FormsAuthenticateProject\bin\FormsAuthenticateProject.pdb
+J:\FormsAuthenticateProject\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.dll
+J:\FormsAuthenticateProject\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.pdb
