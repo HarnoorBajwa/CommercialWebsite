@@ -1,37 +1,47 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.master.cs" Inherits="FormsAuthenticateProject.Customer.Customer" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Customer Portal</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        .header img {
+            max-width: 100px;
+            margin: 10px 0;
+        }
+        .header .user-info {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .navigation {
+            margin: 20px 0;
+        }
+        .navigation a {
+            margin: 0 15px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="text-align:center;">
-        <img src="../Images/Customer.png" alt="customer" />
-         <br />
-          <div style="text-align:right;">
-                <asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:LinkButton ID="lnkSignOut" runat="server">Sign Out</asp:LinkButton>
-            </div>
-            <br />
-        <asp:LinkButton ID="lnkHome" runat="server">Home</asp:LinkButton>
-        &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkChangePassword" runat="server">Change Password</asp:LinkButton>
-        &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkOrderProduct" runat="server">Order Products</asp:LinkButton>
-        &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkViewHistory" runat="server">View History</asp:LinkButton>
-        &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkTrackOrders" runat="server">Track Orders</asp:LinkButton>
+    <div class="header" style="text-align:center;">
+        <img src="../Images/Customer.png" alt="Customer" />
+         <div class="user-info">
+            <asp:Label ID="lblName" runat="server" Text="Welcome, User"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click">Sign Out</asp:LinkButton>
+        </div>
+    </div>
+    <div class="navigation" style="text-align:center;">
+        <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Customer/Home.aspx">Home</asp:LinkButton>
+        <asp:LinkButton ID="lnkChangePassword" runat="server" PostBackUrl="~/Customer/ChangePassword.aspx">Change Password</asp:LinkButton>
+        <asp:LinkButton ID="lnkOrderProduct" runat="server" PostBackUrl="~/Customer/OrderProducts.aspx">Order Products</asp:LinkButton>
+        <asp:LinkButton ID="lnkViewHistory" runat="server" PostBackUrl="~/Customer/OrderHistory.aspx">View History</asp:LinkButton>
+        <asp:LinkButton ID="lnkTrackOrders" runat="server" PostBackUrl="~/Customer/TrackOrders.aspx">Track Orders</asp:LinkButton>
     </div>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
         </asp:ContentPlaceHolder>
     </div>
     </form>

@@ -11,6 +11,20 @@ namespace FormsAuthenticateProject.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                // Check if the user is authenticated
+                if (Context.User.Identity.IsAuthenticated)
+                {
+                    // Optionally, you could load user-specific data or set a personalized message
+                    // For example: lblWelcome.Text = "Welcome, " + Context.User.Identity.Name;
+                }
+                else
+                {
+                    // Redirect unauthenticated users to the login page
+                    Response.Redirect("~/Account/Login.aspx");
+                }
+            }
 
         }
     }
