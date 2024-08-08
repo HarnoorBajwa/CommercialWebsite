@@ -20,9 +20,9 @@
             <br />
             <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Administration/default.aspx">Home</asp:LinkButton>
             &nbsp;&nbsp;
-            <asp:LinkButton ID="lnkProducts" runat="server" PostBackUrl="~/Administration/ManageProducts.aspx">Manage Products</asp:LinkButton>
+            <asp:LinkButton ID="lnkProducts" runat="server" PostBackUrl="~/Administration/ProductManagement.aspx">Manage Products</asp:LinkButton>
             &nbsp;&nbsp;
-            <asp:LinkButton ID="lnkUserMaintenance" runat="server" PostBackUrl="~/Administration/ManageUsers.aspx">Manage Users</asp:LinkButton>
+            <asp:LinkButton ID="lnkUserMaintenance" runat="server" PostBackUrl="~/Administration/UserMaintenance.aspx">Manage Users</asp:LinkButton>
             &nbsp;&nbsp;
             <asp:LinkButton ID="lnkReporting" runat="server" PostBackUrl="~/Administration/Reporting.aspx">Reporting</asp:LinkButton>
         </div>

@@ -53,7 +53,6 @@
 
         <asp:GridView ID="gvReport" runat="server" AutoGenerateColumns="False">
             <Columns>
-                <!-- Define columns as per the report data -->
             </Columns>
         </asp:GridView>
 

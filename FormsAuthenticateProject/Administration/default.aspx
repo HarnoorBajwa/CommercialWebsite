@@ -30,7 +30,7 @@
         <p>Use the links below to manage various aspects of the system.</p>
 
         <div class="section">
-            <h3><a href="ManageProducts.aspx">Manage Products</a></h3>
+            <h3><a href="ProductManagement.aspx">Manage Products</a></h3>
             <p>Add, edit, and delete products.</p>
         </div>
 
