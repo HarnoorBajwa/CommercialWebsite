@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace FormsAuthenticateProject.Administration
 {
@@ -21,24 +19,51 @@ namespace FormsAuthenticateProject.Administration
 
         private void InitializePage()
         {
-            // Example: Check if the user is an administrator
+            
+            // Check if the user is an admini
             if (!UserIsAdmin())
             {
-                // If not an admin, redirect to an appropriate page
+                // If not an admin, redirect to the login page
                 Response.Redirect("~/Account/Login.aspx");
             }
-
-            // Additional initialization logic can be placed here, such as:
-            // - Loading summary data for display
-            // - Setting user-specific information or preferences
+            
         }
 
         private bool UserIsAdmin()
         {
-            // Placeholder method to check if the current user has admin privileges
-            // This could involve checking roles, session variables, etc.
-            // For example:
-            return User.IsInRole("Administrator");
+            // Get the current user's email
+            string email = Context.User.Identity.Name;
+           
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT RoleName FROM UserRoles INNER JOIN Users ON UserRoles.RoleId = Users.RoleId WHERE Users.email = @Email", con))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string roleName = reader["RoleName"].ToString();
+                                if (roleName.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception and handle as necessary
+                Response.Write("An error occurred: " + ex.Message);
+            }
+
+            return false;
         }
     }
 }

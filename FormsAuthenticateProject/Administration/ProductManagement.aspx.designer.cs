@@ -13,5 +13,13 @@ namespace FormsAuthenticateProject.Administration
 
     public partial class ProductManagement
     {
+        protected global::System.Web.UI.WebControls.DropDownList ddlSupplier;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+        protected global::System.Web.UI.WebControls.TextBox txtProductName;
+        protected global::System.Web.UI.WebControls.TextBox txtPrice;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.GridView gvProducts;
     }
 }

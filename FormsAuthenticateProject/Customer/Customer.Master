@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.master.cs" Inherits="FormsAuthenticateProject.Customer.Customer" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.Master.cs" Inherits="FormsAuthenticateProject.Customer.Customer" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,10 +34,10 @@
         </div>
     </div>
     <div class="navigation" style="text-align:center;">
-        <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Customer/Home.aspx">Home</asp:LinkButton>
+        <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Customer/default.aspx">Home</asp:LinkButton>
         <asp:LinkButton ID="lnkChangePassword" runat="server" PostBackUrl="~/Customer/ChangePassword.aspx">Change Password</asp:LinkButton>
-        <asp:LinkButton ID="lnkOrderProduct" runat="server" PostBackUrl="~/Customer/OrderProducts.aspx">Order Products</asp:LinkButton>
-        <asp:LinkButton ID="lnkViewHistory" runat="server" PostBackUrl="~/Customer/OrderHistory.aspx">View History</asp:LinkButton>
+        <asp:LinkButton ID="lnkOrderProduct" runat="server" PostBackUrl="~/Customer/OrderProduct.aspx">Order Products</asp:LinkButton>
+        <asp:LinkButton ID="lnkViewHistory" runat="server" PostBackUrl="~/Customer/ViewHistory.aspx">View History</asp:LinkButton>
         <asp:LinkButton ID="lnkTrackOrders" runat="server" PostBackUrl="~/Customer/TrackOrders.aspx">Track Orders</asp:LinkButton>
     </div>
     <div>

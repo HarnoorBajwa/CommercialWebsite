@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Public.master.cs" Inherits="FormsAuthenticateProject.Public" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Public Area - HeliSound</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <!-- Page-specific head content goes here -->
+    </asp:ContentPlaceHolder>
+    <style>
+        .navbar, .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+        .navbar a, .footer a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        .navbar a:hover, .footer a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            margin: 20px auto;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="text-align:center;">
+            <img src="Images/public.png" alt="public" />
+        </div>
+
+        <div class="navbar">
+            <a href="Home.aspx">Home</a>
+            <a href="Products.aspx">Products</a>
+            <a href="About.aspx">About Us</a>
+            <a href="Contact.aspx">Contact</a>
+        </div>
+
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <!-- Page-specific main content goes here -->
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 HeliSound. All rights reserved.</p>
+            <a href="Privacy.aspx">Privacy Policy</a>
+            <a href="Terms.aspx">Terms of Service</a>
+        </div>
+    </form>
+</body>
+</html>

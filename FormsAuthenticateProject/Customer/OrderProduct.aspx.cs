@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,138 +12,99 @@ namespace FormsAuthenticateProject.Customer
         {
             if (!IsPostBack)
             {
-                LoadSuppliers();
-                LoadExpiryDates();
-            }
-
-        }
-
-        private void LoadSuppliers()
-        {
-            // Example: Load suppliers from the database into ddlSupplier
-            // Replace with actual data access logic
-            ddlSupplier.Items.Clear();
-            ddlSupplier.Items.Add(new ListItem("Select a supplier", ""));
-            ddlSupplier.Items.Add(new ListItem("Sony", "1"));
-            ddlSupplier.Items.Add(new ListItem("Samsung", "2"));
-            ddlSupplier.Items.Add(new ListItem("LG", "3"));
-        }
-
-        private void LoadCategories(int supplierId)
-        {
-            // Example: Load categories based on supplierId from the database into ddlCategory
-            // Replace with actual data access logic
-            ddlCategory.Items.Clear();
-            ddlCategory.Items.Add(new ListItem("Select a category", ""));
-            if (supplierId == 1) // Example for Sony
-            {
-                ddlCategory.Items.Add(new ListItem("Televisions", "1"));
-                ddlCategory.Items.Add(new ListItem("Speakers", "2"));
-            }
-            else if (supplierId == 2) // Example for Samsung
-            {
-                ddlCategory.Items.Add(new ListItem("Home Theatres", "3"));
-                ddlCategory.Items.Add(new ListItem("Televisions", "1"));
+                PopulateSuppliers();
+                PopulateExpiryMonths();
+                PopulateExpiryYears();
             }
         }
 
-        private void LoadProducts(int categoryId)
+        private void PopulateSuppliers()
         {
-            // Example: Load products based on categoryId from the database into ddlProduct
-            // Replace with actual data access logic
-            ddlProduct.Items.Clear();
-            ddlProduct.Items.Add(new ListItem("Select a product", ""));
-            if (categoryId == 1) // Example for Televisions
+            using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
             {
-                ddlProduct.Items.Add(new ListItem("Sony Bravia", "101"));
-                ddlProduct.Items.Add(new ListItem("Samsung Smart TV", "102"));
+                SqlCommand cmd = new SqlCommand("SELECT SupplierID, CompanyName FROM Suppliers", con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                ddlSupplier.DataSource = reader;
+                ddlSupplier.DataTextField = "CompanyName";
+                ddlSupplier.DataValueField = "SupplierID";
+                ddlSupplier.DataBind();
+                con.Close();
             }
-            else if (categoryId == 2) // Example for Speakers
-            {
-                ddlProduct.Items.Add(new ListItem("Sony Home Speaker", "201"));
-                ddlProduct.Items.Add(new ListItem("LG Soundbar", "202"));
-            }
-        }
-
-        private void LoadExpiryDates()
-        {
-            // Load months
-            ddlExpiryMonth.Items.Clear();
-            for (int month = 1; month <= 12; month++)
-            {
-                ddlExpiryMonth.Items.Add(new ListItem(month.ToString("D2"), month.ToString()));
-            }
-
-            // Load years
-            ddlExpiryYear.Items.Clear();
-            int currentYear = DateTime.Now.Year;
-            for (int year = currentYear; year <= currentYear + 10; year++)
-            {
-                ddlExpiryYear.Items.Add(new ListItem(year.ToString(), year.ToString()));
-            }
+            ddlSupplier.Items.Insert(0, new ListItem("Select a supplier", ""));
         }
 
         protected void ddlSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int supplierId = int.Parse(ddlSupplier.SelectedValue);
-            LoadCategories(supplierId);
+            PopulateCategories();
+        }
+
+        private void PopulateCategories()
+        {
+            if (ddlSupplier.SelectedIndex > 0)
+            {
+                using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT CategoryID, Description FROM Categories WHERE SupplierID = @SupplierID", con);
+                    cmd.Parameters.AddWithValue("@SupplierID", ddlSupplier.SelectedValue);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    ddlCategory.DataSource = reader;
+                    ddlCategory.DataTextField = "Description";
+                    ddlCategory.DataValueField = "CategoryID";
+                    ddlCategory.DataBind();
+                    con.Close();
+                }
+                ddlCategory.Items.Insert(0, new ListItem("Select a category", ""));
+            }
         }
 
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int categoryId = int.Parse(ddlCategory.SelectedValue);
-            LoadProducts(categoryId);
+            PopulateProducts();
+        }
+
+        private void PopulateProducts()
+        {
+            if (ddlCategory.SelectedIndex > 0)
+            {
+                using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT ProductID, ProductName FROM Products WHERE CategoryID = @CategoryID", con);
+                    cmd.Parameters.AddWithValue("@CategoryID", ddlCategory.SelectedValue);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    ddlProduct.DataSource = reader;
+                    ddlProduct.DataTextField = "ProductName";
+                    ddlProduct.DataValueField = "ProductID";
+                    ddlProduct.DataBind();
+                    con.Close();
+                }
+                ddlProduct.Items.Insert(0, new ListItem("Select a product", ""));
+            }
+        }
+
+        private void PopulateExpiryMonths()
+        {
+            ddlExpiryMonth.Items.Clear();
+            for (int i = 1; i <= 12; i++)
+            {
+                ddlExpiryMonth.Items.Add(new ListItem(i.ToString("D2"), i.ToString()));
+            }
+        }
+
+        private void PopulateExpiryYears()
+        {
+            ddlExpiryYear.Items.Clear();
+            for (int i = DateTime.Now.Year; i <= DateTime.Now.Year + 10; i++)
+            {
+                ddlExpiryYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
+            }
         }
 
         protected void btnSaveOrder_Click(object sender, EventArgs e)
         {
-            // Example: Get the selected values and input data
-            string productId = ddlProduct.SelectedValue;
-            string cardHolderName = txtCardHolderName.Text.Trim();
-            string cardType = ddlCardType.SelectedValue;
-            string cardNumber = txtCardNumber.Text.Trim();
-            string securityCode = txtSecurityCode.Text.Trim();
-            string expiryMonth = ddlExpiryMonth.SelectedValue;
-            string expiryYear = ddlExpiryYear.SelectedValue;
-            string houseNumber = txtHouseNumber.Text.Trim();
-            string street = txtStreet.Text.Trim();
-            string apartment = txtApartment.Text.Trim();
-            string city = txtCity.Text.Trim();
-            string province = txtProvince.Text.Trim();
-            string postalCode = txtPostalCode.Text.Trim();
-
-            // Validate inputs
-            if (string.IsNullOrEmpty(productId) || string.IsNullOrEmpty(cardHolderName) || 
-                string.IsNullOrEmpty(cardNumber) || string.IsNullOrEmpty(securityCode) || 
-                string.IsNullOrEmpty(houseNumber) || string.IsNullOrEmpty(street) || 
-                string.IsNullOrEmpty(city) || string.IsNullOrEmpty(province) || 
-                string.IsNullOrEmpty(postalCode))
-            {
-                lblError.Text = "All fields are required.";
-                lblError.Visible = true;
-                return;
-            }
-
-            // Example: Process the order (e.g., save to database)
-            // Replace with actual order processing logic
-            bool isOrderSaved = SaveOrder(productId, cardHolderName, cardType, cardNumber, securityCode, expiryMonth, expiryYear, houseNumber, street, apartment, city, province, postalCode);
-
-            if (isOrderSaved)
-            {
-                // Redirect to a confirmation page or show a success message
-                Response.Redirect("~/Customer/OrderConfirmation.aspx");
-            }
-            else
-            {
-                lblError.Text = "There was an error processing your order. Please try again.";
-                lblError.Visible = true;
-            }
-        }
-
-        private bool SaveOrder(string productId, string cardHolderName, string cardType, string cardNumber, string securityCode, string expiryMonth, string expiryYear, string houseNumber, string street, string apartment, string city, string province, string postalCode)
-        {
-            // Replace with actual data saving logic, such as inserting into a database
-            return true; // Placeholder indicating success
+            // Save order logic goes here
         }
     }
 }

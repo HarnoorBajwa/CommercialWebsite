@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="FormsAuthenticateProject.Administration.Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Admin Panel</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="text-align:center;">
+            <img src="../Images/Administration.png" alt="Admin" />
+            <br />
+            <div style="text-align:right;">
+                <asp:Label ID="lblName" runat="server" Text="Welcome, Admin"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click">Sign Out</asp:LinkButton>
+            </div>
+            <br />
+            <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Admin/Home.aspx">Home</asp:LinkButton>
+            &nbsp;&nbsp;
+            <asp:LinkButton ID="lnkProducts" runat="server" PostBackUrl="~/Admin/ManageProducts.aspx">Manage Products</asp:LinkButton>
+            &nbsp;&nbsp;
+            <asp:LinkButton ID="lnkUserMaintenance" runat="server" PostBackUrl="~/Admin/ManageUsers.aspx">Manage Users</asp:LinkButton>
+            &nbsp;&nbsp;
+            <asp:LinkButton ID="lnkReporting" runat="server" PostBackUrl="~/Admin/Reporting.aspx">Reporting</asp:LinkButton>
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
+

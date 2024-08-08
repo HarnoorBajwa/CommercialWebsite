@@ -18,13 +18,13 @@
                 <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click">Sign Out</asp:LinkButton>
             </div>
             <br />
-            <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Admin/Home.aspx">Home</asp:LinkButton>
+            <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Administration/default.aspx">Home</asp:LinkButton>
             &nbsp;&nbsp;
-            <asp:LinkButton ID="lnkProducts" runat="server" PostBackUrl="~/Admin/ManageProducts.aspx">Manage Products</asp:LinkButton>
+            <asp:LinkButton ID="lnkProducts" runat="server" PostBackUrl="~/Administration/ManageProducts.aspx">Manage Products</asp:LinkButton>
             &nbsp;&nbsp;
-            <asp:LinkButton ID="lnkUserMaintenance" runat="server" PostBackUrl="~/Admin/ManageUsers.aspx">Manage Users</asp:LinkButton>
+            <asp:LinkButton ID="lnkUserMaintenance" runat="server" PostBackUrl="~/Administration/ManageUsers.aspx">Manage Users</asp:LinkButton>
             &nbsp;&nbsp;
-            <asp:LinkButton ID="lnkReporting" runat="server" PostBackUrl="~/Admin/Reporting.aspx">Reporting</asp:LinkButton>
+            <asp:LinkButton ID="lnkReporting" runat="server" PostBackUrl="~/Administration/Reporting.aspx">Reporting</asp:LinkButton>
         </div>
 
         <div>

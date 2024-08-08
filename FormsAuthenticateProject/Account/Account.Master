@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Account.master.cs" Inherits="FormsAuthenticateProject.Account.Account" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="~/Account/Account.Master.cs" Inherits="FormsAuthenticateProject.Account.Account" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,8 +19,8 @@
         <div style="text-align:right;">
             <asp:LoginView ID="LoginView1" runat="server">
                 <AnonymousTemplate>
-                    <a href="~/Account/Login.aspx">Login</a> |
-                    <a href="~/Account/Register.aspx">Register</a>
+                    <a href="Login.aspx">Login</a> |
+                    <a href="Registration.aspx">Register</a>
                 </AnonymousTemplate>
                 <LoggedInTemplate>
                     <asp:Label ID="lblWelcome" runat="server" Text="Welcome!"></asp:Label> |

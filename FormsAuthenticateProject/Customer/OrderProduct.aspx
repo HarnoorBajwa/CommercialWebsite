@@ -42,19 +42,19 @@
             <label for="ddlSupplier">Supplier:</label>
             <asp:DropDownList ID="ddlSupplier" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSupplier_SelectedIndexChanged">
                 <asp:ListItem Text="Select a supplier" Value=""></asp:ListItem>
-                <!-- Suppliers will be populated here -->
+                
             </asp:DropDownList>
 
             <label for="ddlCategory">Category:</label>
             <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged">
                 <asp:ListItem Text="Select a category" Value=""></asp:ListItem>
-                <!-- Categories will be populated here -->
+                
             </asp:DropDownList>
 
             <label for="ddlProduct">Product:</label>
             <asp:DropDownList ID="ddlProduct" runat="server">
                 <asp:ListItem Text="Select a product" Value=""></asp:ListItem>
-                <!-- Products will be populated here -->
+                
             </asp:DropDownList>
         </div>
 
@@ -78,12 +78,12 @@
 
             <label for="ddlExpiryMonth">Expiry Month:</label>
             <asp:DropDownList ID="ddlExpiryMonth" runat="server">
-                <!-- Months will be populated here -->
+             
             </asp:DropDownList>
 
             <label for="ddlExpiryYear">Expiry Year:</label>
             <asp:DropDownList ID="ddlExpiryYear" runat="server">
-                <!-- Years will be populated here -->
+               
             </asp:DropDownList>
         </div>
 

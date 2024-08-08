@@ -13,5 +13,6 @@ namespace FormsAuthenticateProject.Customer
 
     public partial class ViewHistory
     {
+        protected global::System.Web.UI.WebControls.GridView gvOrderHistory;
     }
 }

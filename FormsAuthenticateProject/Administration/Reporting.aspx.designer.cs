@@ -13,5 +13,10 @@ namespace FormsAuthenticateProject.Administration
 
     public partial class Reporting
     {
+        protected global::System.Web.UI.WebControls.DropDownList ddlReportType;
+        protected global::System.Web.UI.WebControls.TextBox txtStartDate;
+        protected global::System.Web.UI.WebControls.TextBox txtEndDate;
+        protected global::System.Web.UI.WebControls.GridView gvReport;
+        protected global::System.Web.UI.WebControls.Button btnGenerate;
     }
 }

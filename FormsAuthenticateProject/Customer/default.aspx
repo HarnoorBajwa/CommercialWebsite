@@ -34,8 +34,8 @@
         </div>
         
         <div class="feature-links">
-            <a href="OrderProducts.aspx">Order Products</a>
-            <a href="OrderHistory.aspx">View Order History</a>
+            <a href="OrderProduct.aspx">Order Products</a>
+            <a href="ViewHistory.aspx">View Order History</a>
             <a href="TrackOrders.aspx">Track Orders</a>
             <a href="ChangePassword.aspx">Change Password</a>
         </div>

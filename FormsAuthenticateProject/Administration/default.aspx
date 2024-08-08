@@ -31,5 +31,17 @@
 
         <div class="section">
             <h3><a href="ManageProducts.aspx">Manage Products</a></h3>
-            <p>Add,
+            <p>Add, edit, and delete products.</p>
+        </div>
 
+        <div class="section">
+            <h3><a href="UserMaintenance.aspx">Manage Users</a></h3>
+            <p>Maintain user accounts and roles.</p>
+        </div>
+
+        <div class="section">
+            <h3><a href="Reporting.aspx">Reporting</a></h3>
+            <p>View system reports.</p>
+        </div>
+    </div>
+</asp:Content>

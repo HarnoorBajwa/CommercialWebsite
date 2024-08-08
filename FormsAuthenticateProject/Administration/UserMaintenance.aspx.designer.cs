@@ -9,9 +9,14 @@
 
 namespace FormsAuthenticateProject.Administration
 {
-
-
-    public partial class UserMaintenance
+    public partial class UserMaintenance : System.Web.UI.Page
     {
+        protected global::System.Web.UI.WebControls.GridView gvUsers;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
+        // Other controls as needed
     }
 }

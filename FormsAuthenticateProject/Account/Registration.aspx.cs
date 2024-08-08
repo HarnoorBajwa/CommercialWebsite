@@ -88,7 +88,7 @@ namespace FormsAuthenticateProject.Account
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             // Redirect to a different page, e.g., the home page
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect("~/Welcome.aspx");
         }
 
         private bool UserExists(string username)

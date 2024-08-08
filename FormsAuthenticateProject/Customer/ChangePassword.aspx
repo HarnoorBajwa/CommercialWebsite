@@ -42,7 +42,7 @@
 
         <label for="ddlSecretQuestion">Secret Question:</label>
         <asp:DropDownList ID="ddlSecretQuestion" runat="server">
-            <!-- Secret questions will be populated here -->
+         
         </asp:DropDownList>
 
         <label for="txtSecretAnswer">Answer:</label>

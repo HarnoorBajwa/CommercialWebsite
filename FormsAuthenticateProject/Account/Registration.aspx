@@ -113,7 +113,7 @@
             <td>
                 &nbsp;&nbsp;
                 <asp:DropDownList ID="dlSecretQuestion1" runat="server" Width="300px">
-                    <!-- Add items dynamically in the code-behind or statically here -->
+                  
                 </asp:DropDownList>
             </td>
             <td>

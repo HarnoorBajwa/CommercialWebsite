@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FormsAuthenticateProject {
-    
-    
-    public partial class Public {
-        
+namespace FormsAuthenticateProject
+{
+
+
+    public partial class PublicMaster
+    {
+
         /// <summary>
         /// head control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace FormsAuthenticateProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace FormsAuthenticateProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
