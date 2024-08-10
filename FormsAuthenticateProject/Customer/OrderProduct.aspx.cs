@@ -39,12 +39,12 @@ namespace FormsAuthenticateProject.Customer
             ddlCategory.Items.Clear();
             using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
             {
-                SqlCommand cmd = new SqlCommand("SELECT CategoryID, CategoryName FROM Categories WHERE SupplierID = @SupplierID", con);
+                SqlCommand cmd = new SqlCommand("SELECT CategoryID, Description FROM Categories WHERE SupplierID = @SupplierID", con);
                 cmd.Parameters.AddWithValue("@SupplierID", ddlSupplier.SelectedValue);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 ddlCategory.DataSource = reader;
-                ddlCategory.DataTextField = "CategoryName";
+                ddlCategory.DataTextField = "Description";
                 ddlCategory.DataValueField = "CategoryID";
                 ddlCategory.DataBind();
                 con.Close();

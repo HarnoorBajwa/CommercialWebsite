@@ -6,10 +6,10 @@ J:\FormsAuthenticateProject\FormsAuthenticateProject\bin\FormsAuthenticateProjec
 J:\FormsAuthenticateProject\FormsAuthenticateProject\bin\FormsAuthenticateProject.pdb
 J:\FormsAuthenticateProject\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.dll
 J:\FormsAuthenticateProject\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.pdb
-D:\Projects\CommercialWebsite\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.csproj.AssemblyReference.cache
-D:\Projects\CommercialWebsite\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.csproj.CoreCompileInputs.cache
 D:\Projects\CommercialWebsite\FormsAuthenticateProject\bin\FormsAuthenticateProject.dll.config
 D:\Projects\CommercialWebsite\FormsAuthenticateProject\bin\FormsAuthenticateProject.dll
 D:\Projects\CommercialWebsite\FormsAuthenticateProject\bin\FormsAuthenticateProject.pdb
+D:\Projects\CommercialWebsite\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.csproj.AssemblyReference.cache
+D:\Projects\CommercialWebsite\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.csproj.CoreCompileInputs.cache
 D:\Projects\CommercialWebsite\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.dll
 D:\Projects\CommercialWebsite\FormsAuthenticateProject\obj\Debug\FormsAuthenticateProject.pdb
