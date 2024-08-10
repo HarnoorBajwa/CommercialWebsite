@@ -20,7 +20,8 @@ namespace FormsAuthenticateProject.Customer
         private void PopulateSuppliers()
         {
             ddlSupplier.Items.Clear();
-            using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["HeliSoundDBConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("SELECT SupplierID, CompanyName FROM Suppliers", con);
                 con.Open();
@@ -37,7 +38,8 @@ namespace FormsAuthenticateProject.Customer
         private void PopulateCategories()
         {
             ddlCategory.Items.Clear();
-            using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["HeliSoundDBConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("SELECT CategoryID, Description FROM Categories WHERE SupplierID = @SupplierID", con);
                 cmd.Parameters.AddWithValue("@SupplierID", ddlSupplier.SelectedValue);
@@ -55,7 +57,8 @@ namespace FormsAuthenticateProject.Customer
         private void PopulateProducts()
         {
             ddlProduct.Items.Clear();
-            using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["HeliSoundDBConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("SELECT ProductID, ProductName FROM Products WHERE CategoryID = @CategoryID", con);
                 cmd.Parameters.AddWithValue("@CategoryID", ddlCategory.SelectedValue);

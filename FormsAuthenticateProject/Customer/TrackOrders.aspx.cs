@@ -18,7 +18,8 @@ namespace FormsAuthenticateProject.Customer
         private void PopulateOrders()
         {
             ddlOrderID.Items.Clear();
-            using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["HeliSoundDBConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("SELECT OrderID FROM Orders WHERE UserID = @UserID", con);
                 cmd.Parameters.AddWithValue("@UserID", GetCurrentUserID());
@@ -42,7 +43,8 @@ namespace FormsAuthenticateProject.Customer
         {
             if (ddlOrderID.SelectedIndex > 0)
             {
-                using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+                string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["HeliSoundDBConnection"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("SELECT ProductName, Quantity, Price FROM OrderDetails WHERE OrderID = @OrderID", con);
                     cmd.Parameters.AddWithValue("@OrderID", ddlOrderID.SelectedValue);

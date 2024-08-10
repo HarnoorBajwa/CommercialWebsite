@@ -84,7 +84,7 @@ namespace FormsAuthenticateProject.Account
             }
 
         }
-        
+
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             // Redirect to a different page, e.g., the home page

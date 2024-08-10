@@ -27,7 +27,8 @@ namespace FormsAuthenticateProject.Account
 
             try
             {
-                using (SqlConnection con = new SqlConnection("Server=COMFYYYYYY;Database=HeliSoundDB;Trusted_Connection=True"))
+                string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["HeliSoundDBConnection"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
                     using (SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE email=@Email AND passwordHash=@PasswordHash", con))

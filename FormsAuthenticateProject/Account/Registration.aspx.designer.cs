@@ -119,7 +119,8 @@ namespace FormsAuthenticateProject.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfEmail;
-        
+        protected global::System.Web.UI.WebControls.DropDownList ddlSecretQuestion;
+
         /// <summary>
         /// revEmail control.
         /// </summary>
